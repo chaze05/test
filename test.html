@@ -15,8 +15,8 @@ body{
 .holder{
   width:100%;
   max-width:725px;
-  border:1px solid #193B65;
-  border-radius: 30px;
+  border:1px solid #D6DEEB;
+  border-radius: 30px; 
   margin:0 auto;
 }
 .holder h4{
@@ -28,7 +28,7 @@ body{
     margin: 0;
     border-bottom: 1px solid #193B65;
 }
-.settingsBox{
+.settingsBox{ 
     display:flex;
     justify-content:space-evenly;
     padding: 24px 32px;
@@ -61,7 +61,6 @@ body{
     font-weight: normal;
     font-size: 18px;
     line-height: 29px;
-    /* identical to box height, or 161% */
     color: #263348;
     text-transform: capitalize;
 }
@@ -82,7 +81,6 @@ body{
     display: flex;
 }
 .advance > div{
-  /* width: 50%; */
   flex: 1 0 50%;
   margin: 12px 0;
   position: relative;
@@ -215,6 +213,9 @@ body{
     justify-content: space-between;
     padding: 15px 60px;
 }
+.level .smileBox{
+    cursor: pointer;
+}
 .level .smileBox span{
     display: block;
     text-align: center;
@@ -225,14 +226,18 @@ body{
     color: #263348;
     opacity: 0.35;
     margin-top: 19px;
+    transition:all .35s ease-in-out
 }
 .level .smileBox img{
     border-radius: 50%;
     border: 2px solid transparent;
+    transition:all .35s ease-in-out
 }
-.level .smileBox.active img{
+.level .smileBox.active img, 
+.level .smileBox:hover img{
     border: 2px solid #1953A5;
 }
+.level .smileBox:hover span, 
 .level .smileBox.active span{
     color: #263348;
     opacity: 1;
@@ -285,7 +290,6 @@ body{
     right: 0;
     bottom: 0;
     text-transform: uppercase;
-    column-rule: white;
     margin: auto;
     text-align: center;
     background: #0397E5;
@@ -297,6 +301,12 @@ body{
     color: #FFFFFF;
     cursor: pointer;
     font-weight: 600;
+    border: 1px solid #0397E5;
+    transition: all .5s ease-in-out;
+}
+.bar .next:hover{
+    color: #0397E5;
+    background: #FFFFFF;
 }
 /* satisfied component */
 </style>
@@ -401,6 +411,10 @@ body{
         var value = $(this).text();
         $(this).parents().eq(1).find('span').text(value)
         $(this).parent().fadeOut();
+    })
+    $('.smileBox').on('click', function(){
+        $('.smileBox').removeClass('active')
+        $(this).addClass('active');
     })
 </script>
 </body>
