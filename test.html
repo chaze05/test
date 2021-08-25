@@ -18,6 +18,10 @@ body{
   border:1px solid #D6DEEB;
   border-radius: 30px; 
   margin:0 auto;
+  overflow: hidden;
+}
+.holder.overFlow{
+    overflow: unset;
 }
 .holder h4{
     font-style: normal;
@@ -73,12 +77,10 @@ body{
     background: #F0F5FA;
     transition: all .35s ease-in-out;
     border-radius: 30px;
-    display: none;
 }
 .advance.open{
     height: 240px;
     padding: 12px 32px;
-    display: flex;
 }
 .advance > div{
   flex: 1 0 50%;
@@ -402,6 +404,7 @@ body{
     $('.btnAdvance').on('click', function(){
         $(this).toggleClass('open');
         $('.advance').toggleClass('open')
+        $('.holder').toggleClass('overflow');
     })
     $('.selected').on('click',function(){
         $(this).toggleClass('open');
